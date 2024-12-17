@@ -1,0 +1,36 @@
+name: Python application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff pytest poetry
+          poetry install
+
+      - name: Lint with ruff
+        run: |
+          ruff check bube
+
+      - name: Test with pytest
+        run: |
+          poetry run pytest -v tests/test_embeddings_and_duplicates.py
+        timeout-minutes: 5

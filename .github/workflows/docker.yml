@@ -1,0 +1,36 @@
+name: Docker Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t bube_image .
+
+      - name: Run Docker container
+        run: |
+          docker run -d --name bube_container bube_image
+          sleep 10
+
+      - name: Check if container is running
+        run: |
+          if docker ps | grep bube_container; then
+            echo "Container is running"
+          else
+            echo "Container failed to start"
+            exit 1
+          fi
+
+      - name: Stop and remove container
+        run: |
+          docker stop bube_container
+          docker rm bube_container

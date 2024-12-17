@@ -1,0 +1,114 @@
+[tool.poetry]
+name = "bube"
+version = "0.1.0"
+description = ""
+authors = ["patsab <patrick.sabau@codecamp-n.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pydantic = "^2.10.3"
+pillow = "^10.4.0"
+pillow-heif = "^0.18.0"
+fastapi = "^0.115.6"
+uvicorn = "^0.30.6"
+pydantic-settings = "^2.5.2"
+chromadb = "^0.5.23"
+python-multipart = "^0.0.19"
+psycopg2-binary = "^2.9.9"
+ruff = "^0.8.3"
+pytest = "^8.3.3"
+httpx = "^0.27.2"
+jupyter = "^1.1.1"
+onnxruntime = "^1.19.2"
+notebook = "^7.3.1"
+
+[tool.ruff]
+line-length = 120
+# other rules:
+# * "DJ" for Django
+# * "PYI" for type stubs etc.
+# * "PD" for PandasVet
+# * "NPY" for NumPy
+
+exclude = ["tests", "*.ipynb"]
+
+lint.select = [
+    "E",
+    "W", # PyCodeStyle
+    "F", # PyFlakes
+    "C90", # McCabe (Function Complexity
+    "I", # ISort
+    "N", # PEP8 Naming Conventions
+    "D", # PyDocStyle
+    "UP", # pyupgrade
+    "YTT", # flake8-2020 ('Yield from' etc.)
+    "ANN", # flake8-annotations (missing type annotations)
+    "ASYNC", # flake8-async (various async issues)
+    "S", # flake8-bandit (security issues)
+    "BLE", # blind exceptions
+    "FBT", # boolean traps (Anti-Pattern, Google it.)
+    "B", # bugbear (various anti-patterns)
+    "A", # flake8-builtins (shadowing builtins)
+    "COM", # flake8-commas (comma placement at line-end)
+    "C4", # flake8-comprehensions (comprehension issues like unnecessary list comprehensions etc.)
+    "DTZ", # avoid usage of naive datetime objects
+    "T10", # watch for Debugger imports
+    "EM", # ensure error messages are not formatted as f-strings and similar
+    "FA", # flake8-future-annotations (ensure type hint annotation use mnodern syntax)
+    "ISC", # implicit string concatenation
+    "G", # flake8-logging-format (ensure logging format strings are valid)
+    "INP", # do not use implicit namspace packages
+    "PIE", # various anti-patterns and misfeatures
+    "T20", # watch for print() calls
+    "PT", # pytest style issues
+    "Q", # quotes (ensure consistent usage of single/double quotes)
+    "RSE", # some "raise" syntax issues
+    "RET", # return values anti-patterns
+    "SLF", # flake8-self (do not access "_private" attributes from outside)
+    "SLOT", # flake8-slots (ensure usage of __slots__)
+    "SIM", # flake8-simplify (simplify various constructs)
+    "INT", # gettext issues (format strings etc.)
+    "ARG", # disallow unused arguments
+    "PTH", # use pathlib instead of os.path
+    "TD", # enforce some syntax on TODO comments
+    "FIX", # highlight TODO, FIXME, XXX etc.
+    "PGH", # pygrep-hooks (policing "noqa" and similar)
+    "PL", # PyLint (various issues)
+    "TRY", # try/except/else/finally anti-patterns (try.ceratops)
+    "FLY", # join vs. f-strings
+    "PERF", # various performance issues
+    "FURB", # modernize various constructs
+    "LOG", # logging issues
+    "RUF", # ruff (various issues)
+    "NPY"
+]
+
+lint.ignore = [
+    "ANN002", # do not require type annotations for "*args" and "**kwargs"
+    "ANN003", # do not require type annotations for "self" and "cls"
+    "ANN204", # do not require "__init__" return type annotations
+    "ARG003", # allow *args and **kwargs in function signatures
+    "B008", # allow function calls as default param
+    "COM812", # allow comma placement at line-end
+    "D100", # do not require docstrings for modules
+    "D104", # do not require docstrings for public methods
+    "D107", # do not require docstrings for public classes and modules
+    "FA100", # do not require `from __future__ import annotations`
+    "FA102", # do not require `from __future__ import annotations`
+    "FBT001", # allow boolean-typed positional arguments
+    "FBT002", # allow boolean-typed default arguments
+    "FBT003", # allow boolean-typed value in function call
+    "G004", #allow f-string with logging
+    "ISC001", # allow implicit string concatenation
+    "UP008", # allow super() call with arguments
+    "PLR2004", # allow int in comparisons
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
