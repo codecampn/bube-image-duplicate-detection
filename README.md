@@ -1,4 +1,4 @@
-# BUBE SDK
+# BUBE Image Duplicate Detection
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/coc-ArtificialIntelligence/bube/blob/main/README.en.md)
 
