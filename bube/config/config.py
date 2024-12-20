@@ -25,7 +25,7 @@ class Config(BaseSettings):
     PGVECTOR_DB_HOST: str = "localhost"
     PGVECTOR_DB_PORT: int = 5432
     PGVECTOR_DB_USER: str = "postgres"
-    PGVECTOR_DB_PWD: SecretStr = "mypassword"
+    PGVECTOR_DB_PWD: SecretStr = "mypassword" # noqa: S105
     PGVECTOR_DB_HTTP_SSL: bool = False
     PGVECTOR_DB_DATABASE_NAME: str = "postgres"
     PGVECTOR_DB_TABLE_NAME: str = "feex_embeddings"
