@@ -1,6 +1,6 @@
 # BUBE Image Duplicate Detection
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/coc-ArtificialIntelligence/bube/blob/main/README.en.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/codecampn/bube-image-duplicate-detection/blob/main/README.en.md)
 
 Komplexe Duplikatserkennung von Bildern durch den Einsatz von Deep Learning.
 
